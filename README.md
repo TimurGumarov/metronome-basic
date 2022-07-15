@@ -41,9 +41,9 @@ $ npm i
 3. Run
 
 ```bash
-$ yarn serve
+$ yarn dev
 # or if you use npm
-$ npm run serve
+$ npm run dev
 ```
 
 ### To build the project use
