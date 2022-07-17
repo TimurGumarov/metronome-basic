@@ -9,6 +9,7 @@ import MetronomeManageButtons from "./components/MetronomeManageButtons.vue";
 import { Metronome } from "./utils/metronome-engine";
 import { MetronomeSounds } from "./types/metronomeEngineTypes";
 
+// Set start BPM
 stateStore.commit('set', 140);
 
 let metronome = new Metronome({

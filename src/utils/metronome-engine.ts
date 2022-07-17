@@ -21,6 +21,7 @@ class Metronome {
     this.setTempo(props.bpm);
   }
 
+  /** Sound selector from MetronomeSounds enum. */
   private chooseSound (name: MetronomeSounds) : OscSound {
     switch (name) {
       case MetronomeSounds.CLICK_ONE:
@@ -31,10 +32,12 @@ class Metronome {
     throw new Error("Shouldn't be reachable");
   }
 
+  /** Changes sound of metronome by MetronomeSounds enum. */
   public changeSound (sound: MetronomeSounds) {
     this.audioEngine.loadOscSound(this.chooseSound(sound));
   }
 
+  /** Makes one click with basic sound. */
   public basicCLick() {
     this.audioEngine.resume();
     const time = this.audioEngine.ctx.currentTime;
@@ -48,10 +51,12 @@ class Metronome {
     this.audioEngine.gain.gain.linearRampToValueAtTime(0, time + .001 + .01);
   }
 
+  /** Sets tempo for metronome loop. */
   public setTempo(bpm: number) {
     this.tempo = bpm;
   }
 
+  /** Start the metronome loop. */
   public start() {
     if (this.playing) return;
     this.playing = true;
@@ -60,6 +65,7 @@ class Metronome {
     console.log("Start");
   }
 
+  /** Stops the metronome loop. */
   public stop() {
     if (!this.playing) return;
     this.playing = false;
@@ -68,6 +74,7 @@ class Metronome {
     console.log("Stop");
   }
 
+  /** Metronome loop. */
   private startMetronomeLoop() {
     let counter = 0;
     let lastTime = new Date().getTime();

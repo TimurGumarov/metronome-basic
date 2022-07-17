@@ -18,7 +18,7 @@ export class AudioEngine {
     if (this.ctx.state === 'suspended') this.ctx.resume();
   }
 
-  /** Stops WebAudio context. */
+  /** Lowers gain to 0 and suspend the WebAudio context. */
   public stop() {
     this.ctx.suspend();
     this.gain.gain.value = 0;
@@ -33,7 +33,7 @@ export class AudioEngine {
   public changeFreq(freq: number) {
     this.osc.frequency.value = freq;
   }
-  
+
   /** Loads Oscillator properties with OscSound type. */
   public loadOscSound(oscSound: OscSound) {
     this.changeOscType(oscSound.type);
